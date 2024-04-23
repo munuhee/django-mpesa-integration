@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django_daraja',
     'mpesa_transactions',
 ]
 
@@ -123,3 +124,14 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Mpesa daraja
+MPESA_ENVIRONMENT = 'sandbox'
+MPESA_CONSUMER_KEY = 'LiLN9BLAArZHMrKg3ABXbHovgG2JvvZ4FRpnGml5u35Z5LQX'
+MPESA_CONSUMER_SECRET = 'xAgwrcGBRGs7tHJrRto21z48RESSEde1XN5rwtMcfoD6QYEQl6kAqiHVMgN3QqDa'
+MPESA_SHORTCODE = '174379'
+MPESA_EXPRESS_SHORTCODE = '174379'
+MPESA_SHORTCODE_TYPE = 'paybill'
+MPESA_PASSKEY = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919'
+MPESA_INITIATOR_USERNAME = 'testapi'
+MPESA_INITIATOR_SECURITY_CREDENTIAL = 'Safaricom999!*!'
