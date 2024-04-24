@@ -1,4 +1,3 @@
-import uuid
 from django.db import models
 
 class MPesaTransaction(models.Model):
@@ -6,7 +5,7 @@ class MPesaTransaction(models.Model):
     Model representing an M-Pesa transaction.
     """
     phone_number = models.CharField(max_length=15, verbose_name="Phone Number")
-    amount = models.IntegerField(verbose_name="Amount")  # Using DecimalField for better precision
+    amount = models.IntegerField(verbose_name="Amount")
     account_reference = models.CharField(max_length=50, verbose_name="Account Reference")
     transaction_desc = models.CharField(max_length=255, verbose_name="Transaction Description")
 
