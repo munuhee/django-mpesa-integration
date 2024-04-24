@@ -9,6 +9,15 @@ import hashlib
 from datetime import datetime
 
 def index(request):
+    """
+    Handles the index page view and processes STK push requests.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: The HTTP response containing the result of the STK push request.
+    """
     if request.method == 'POST':
         form = MPesaTransactionForm(request.POST)
         if form.is_valid():
@@ -44,6 +53,15 @@ def index(request):
     return render(request, 'mpesa_transactions/index.html', {'form': form})
 
 def records(request):
+    """
+    Retrieves and displays transaction records from the database.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: The HTTP response containing the transaction records.
+    """
     try:
         transaction_records = MPesaTransaction.objects.all()
     except MPesaTransaction.DoesNotExist:

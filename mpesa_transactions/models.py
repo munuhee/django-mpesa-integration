@@ -10,6 +10,7 @@ class MPesaTransaction(models.Model):
     transaction_desc = models.CharField(max_length=255, verbose_name="Transaction Description")
 
     class Meta:
+        """Meta options for the MPesaTransaction model."""
         verbose_name = "M-Pesa Transaction"
         verbose_name_plural = "M-Pesa Transactions"
 
