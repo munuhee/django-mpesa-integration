@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import os
+from dotenv import load_dotenv
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -125,13 +126,16 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Mpesa daraja
-MPESA_ENVIRONMENT = 'sandbox'
-MPESA_CONSUMER_KEY = 'LiLN9BLAArZHMrKg3ABXbHovgG2JvvZ4FRpnGml5u35Z5LQX'
-MPESA_CONSUMER_SECRET = 'xAgwrcGBRGs7tHJrRto21z48RESSEde1XN5rwtMcfoD6QYEQl6kAqiHVMgN3QqDa'
-MPESA_SHORTCODE = '174379'
-MPESA_EXPRESS_SHORTCODE = '174379'
-MPESA_SHORTCODE_TYPE = 'paybill'
-MPESA_PASSKEY = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919'
-MPESA_INITIATOR_USERNAME = 'testapi'
-MPESA_INITIATOR_SECURITY_CREDENTIAL = 'Safaricom999!*!'
+# Load environment variables from .env file
+load_dotenv()
+
+# Mpesa Daraja credentials
+MPESA_ENVIRONMENT = os.getenv('MPESA_ENVIRONMENT')
+MPESA_CONSUMER_KEY = os.getenv('MPESA_CONSUMER_KEY')
+MPESA_CONSUMER_SECRET = os.getenv('MPESA_CONSUMER_SECRET')
+MPESA_SHORTCODE = os.getenv('MPESA_SHORTCODE')
+MPESA_EXPRESS_SHORTCODE = os.getenv('MPESA_EXPRESS_SHORTCODE')
+MPESA_SHORTCODE_TYPE = os.getenv('MPESA_SHORTCODE_TYPE')
+MPESA_PASSKEY = os.getenv('MPESA_PASSKEY')
+MPESA_INITIATOR_USERNAME = os.getenv('MPESA_INITIATOR_USERNAME')
+MPESA_INITIATOR_SECURITY_CREDENTIAL = os.getenv('MPESA_INITIATOR_SECURITY_CREDENTIAL')
