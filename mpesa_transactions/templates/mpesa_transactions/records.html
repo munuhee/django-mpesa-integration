@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M-Pesa STK Push</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="bg-blue-600 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <a href="#" class="text-white text-2xl font-semibold">M-Pesa STK Push</a>
+            </div>
+            <div class="hidden lg:flex space-x-4 items-center">
+                <a href="{% url 'mpesa_transactions:index' %}" class="text-white flex items-center space-x-1">
+                    <span>Home</span>
+                </a>
+                <a href="{% url 'mpesa_transactions:records' %}" class="text-white flex items-center space-x-1">
+                    <span>Records</span>
+                </a>
+                <a href="#" class="text-white flex items-center space-x-1">
+                    <span>Contact</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="max-w-5xl mx-auto">
+        <h1 class="text-3xl font-semibold mb-4">M-Pesa Transactions</h1>
+
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Id</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Phone Number</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Account Reference</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    {% for transaction_record in transaction_records %}
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap">{{ transaction_record.id }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">{{ transaction_record.phone_number }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">{{ transaction_record.amount }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">{{ transaction_record.account_reference }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    </body>
+</html>

@@ -42,3 +42,14 @@ def index(request):
         form = MPesaTransactionForm()
 
     return render(request, 'mpesa_transactions/index.html', {'form': form})
+
+def records(request):
+    try:
+        transaction_records = MPesaTransaction.objects.all()
+    except MPesaTransaction.DoesNotExist:
+        transaction_records = None
+    except Exception:
+        transaction_records = None
+
+    context = {'transaction_records': transaction_records}
+    return render(request, 'mpesa_transactions/records.html', context)

@@ -11,9 +11,6 @@
     <nav class="bg-blue-600 p-4">
         <div class="container mx-auto flex justify-between items-center">
             <div class="flex items-center space-x-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zM3.078 10c.06.452.178.891.35 1.304l-.005.001a5.986 5.986 0 013.438-1.38V8.196L4.178 8.18c-.52.944-.656 2.038-.1 3.006.55.97 1.672 1.41 2.705 1.138a3.407 3.407 0 002.065-1.393c.49-.722.748-1.555.744-2.402v-.005c-.004-.83-.277-1.632-.781-2.293-.623-.823-1.617-1.325-2.672-1.35L5.532 5.47l.023-.018a3.545 3.545 0 012.88-1.481c.012 0 .023.008.034.012.018 0 .037.002.055.005a6.297 6.297 0 00-4.424 2.61L2.01 5.568c-.905 1.315-1.358 2.834-.931 4.346a5.195 5.195 0 004.605 3.46l2.438-.003c.65.012 1.297-.25 1.794-.767a2.548 2.548 0 00.407-.403c.412-.548.636-1.213.662-1.896.02-.396-.034-.794-.14-1.182-.277-1.28-1.213-2.382-2.436-2.851-.275-.117-.572-.22-.87-.295V5.835c.43.037.855.135 1.26.29l.026-.015c.455.254.866.566 1.204.92l.029.035c.41.525.622 1.198.588 1.874-.026.675-.296 1.304-.722 1.85a2.674 2.674 0 01-1.875.913l-2.418.004c-.785 0-1.56-.286-2.168-.8a3.155 3.155 0 01-1.024-1.205c-.465-.856-.589-1.85-.293-2.812z" clip-rule="evenodd"/>
-                </svg>
                 <a href="#" class="text-white text-2xl font-semibold">M-Pesa STK Push</a>
             </div>
             <button class="block lg:hidden text-white focus:outline-none">
@@ -23,21 +20,12 @@
             </button>
             <div class="hidden lg:flex space-x-4 items-center">
                 <a href="" class="text-white flex items-center space-x-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                    </svg>
                     <span>Home</span>
                 </a>
-                <a href="" class="text-white flex items-center space-x-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M11.707 3.293a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L12 6.414V16a1 1 0 11-2 0V6.414L7.707 8.707a1 1 0 01-1.414-1.414l4-4zM4 11a1 1 0 112 0v4a1 1 0 11-2 0v-4zm14-1a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
-                    </svg>
+                <a href="{% url 'mpesa_transactions:records' %}" class="text-white flex items-center space-x-1">
                     <span>Records</span>
                 </a>
                 <a href="#" class="text-white flex items-center space-x-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zM3.078 10c.06.452.178.891.35 1.304l-.005.001a5.986 5.986 0 013.438-1.38V8.196L4.178 8.18c-.52.944-.656 2.038-.1 3.006.55.97 1.672 1.41 2.705 1.138a3.407 3.407 0 002.065-1.393c.49-.722.748-1.555.744-2.402v-.005c-.004-.83-.277-1.632-.781-2.293-.623-.823-1.617-1.325-2.672-1.35L5.532 5.47l.023-.018a3.545 3.545 0 012.88-1.481c.012 0 .023.008.034.012.018 0 .037.002.055.005a6.297 6.297 0 00-4.424 2.61L2.01 5.568c-.905 1.315-1.358 2.834-.931 4.346a5.195 5.195 0 004.605 3.46l2.438-.003c.65.012 1.297-.25 1.794-.767a2.548 2.548 0 00.407-.403c.412-.548.636-1.213.662-1.896.02-.396-.034-.794-.14-1.182-.277-1.28-1.213-2.382-2.436-2.851-.275-.117-.572-.22-.87-.295V5.835c.43.037.855.135 1.26.29l.026-.015c.455.254.866.566 1.204.92l.029.035c.41.525.622 1.198.588 1.874-.026.675-.296 1.304-.722 1.85a2.674 2.674 0 01-1.875.913l-2.418.004c-.785 0-1.56-.286-2.168-.8a3.155 3.155 0 01-1.024-1.205c-.465-.856-.589-1.85-.293-2.812z" clip-rule="evenodd"/>
-                    </svg>
                     <span>Contact</span>
                 </a>
             </div>
@@ -66,7 +54,10 @@
                     <label for="transaction_desc" class="block text-gray-700">Transaction Description:</label>
                     <input type="text" id="transaction_desc" name="transaction_desc" placeholder="Enter transaction description" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500">
                 </div>
-                <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-500">Pay Now</button>
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg flex items-center justify-center hover:bg-blue-500">
+                    <img class="w-6 h-6 mr-2" src="https://img.icons8.com/color/48/mpesa.png" alt="M-Pesa Icon"/>
+                    <span>Pay Now</span>
+                </button>
             </form>
         </div>
     </div>
