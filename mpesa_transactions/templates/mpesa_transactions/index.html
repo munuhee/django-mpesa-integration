@@ -36,7 +36,7 @@
     <div class="container mx-auto p-4">
         <div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md">
             <h2 class="text-2xl font-semibold mb-4">Make Payment</h2>
-            <form method="POST" action="/">
+            <form method="POST" action="/" class="form-group" id="payment-form">
                 {% csrf_token %}
                 <div class="mb-4">
                     <label for="phone" class="block text-gray-700">Phone Number:</label>
@@ -54,12 +54,49 @@
                     <label for="transaction_desc" class="block text-gray-700">Transaction Description:</label>
                     <input type="text" id="transaction_desc" name="transaction_desc" placeholder="Enter transaction description" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500">
                 </div>
-                <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg flex items-center justify-center hover:bg-blue-500">
-                    <img class="w-6 h-6 mr-2" src="https://img.icons8.com/color/48/mpesa.png" alt="M-Pesa Icon"/>
-                    <span>Pay Now</span>
-                </button>
+                <input type="submit" value="Pay Now" class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg flex items-center justify-center hover:bg-blue-500">
             </form>
         </div>
     </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Intercept form submission
+        document.getElementById('payment-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent the form from submitting normally
+
+            // Fetch form data
+            const formData = new FormData(e.target);
+
+            // Make POST request to register endpoint
+            fetch("{% url 'mpesa_transactions:index' %}", {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Check if there are errors
+                if (data.errors) {
+                    let errorMessage = '';
+                    for (const field in data.errors) {
+                        errorMessage += `${field}: ${data.errors[field]}\n`;
+                    }
+                    swal("Error", errorMessage, "error");
+                } else {
+                    // Show success message using SweetAlert
+                    swal("Success", data.message, "success").then(() => {
+                        window.location.href = "{% url 'mpesa_transactions:records' %}";
+                    });
+                }
+            })
+            .catch(error => {
+                // Show generic error message using SweetAlert
+                swal("Error", "Failed to make transaction", "error");
+            });
+        });
+    </script>
 </body>
 </html>

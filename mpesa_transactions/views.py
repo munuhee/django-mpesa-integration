@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django_daraja.mpesa.core import MpesaClient
+from django.http import JsonResponse
 from .forms import MPesaTransactionForm
 from .models import MPesaTransaction
 from django.conf import settings
@@ -46,10 +47,10 @@ def index(request):
             # Save transaction to the database
             form.save()
 
-            return HttpResponse(response)
+            #return HttpResponse(response)
+            return JsonResponse({'success': True, 'message': 'Your transaction was successful!'})
     else:
         form = MPesaTransactionForm()
-
     return render(request, 'mpesa_transactions/index.html', {'form': form})
 
 def records(request):
