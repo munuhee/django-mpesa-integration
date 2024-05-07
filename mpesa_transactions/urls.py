@@ -9,5 +9,5 @@ app_name ='mpesa_transactions'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('/records', views.records, name='records')
+    path('records/', views.records, name='records')
 ]
