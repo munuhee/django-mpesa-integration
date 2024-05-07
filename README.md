@@ -2,7 +2,7 @@
 
 # Django M-Pesa Integration
 
-This Django app offers a comprehensive solution for managing M-Pesa transactions within Django applications. It encompasses functionalities such as initiating STK push requests, processing payment notifications, and storing transaction records in the database.
+This Django app offers a solution for managing M-Pesa transactions within Django applications. It encompasses functionalities such as initiating STK push requests, processing payment notifications, and storing transaction records in the database.
 
 ## Features
 
