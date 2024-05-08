@@ -1,3 +1,5 @@
+"""Django views for handling M-Pesa transactions."""
+
 from django.shortcuts import render
 from django.http import HttpResponse
 from django_daraja.mpesa.core import MpesaClient
